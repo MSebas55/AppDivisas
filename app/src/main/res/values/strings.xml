@@ -1,3 +1,48 @@
 <resources>
     <string name="app_name">AppDivisas</string>
+    <string-array name="divisas">
+        <item>Dólar estadounidense</item>
+        <item>Yen japonés</item>
+        <item>Libra esterlina</item>
+        <item>Dólar canadiense</item>
+        <item>Franco suizo</item>
+        <item>Dólar australiano</item>
+        <item>Rupia india</item>
+        <item>Yuan chino</item>
+        <item>Rublo ruso</item>
+        <item>Peso mexicano</item>
+        <item>Dólar neozelandés</item>
+        <item>Won surcoreano</item>
+        <item>Dólar de Singapur</item>
+        <item>Lira turca</item>
+        <item>Peso argentino</item>
+        <item>Real brasileño</item>
+        <item>Dólar hongkonés</item>
+        <item>Ringgit malasio</item>
+        <item>Riyal saudita</item>
+    </string-array>
+
+    <string-array name="precio_divisas">
+        <item>1.12</item>
+        <item>0.89</item>
+        <item>0.74</item>
+        <item>1.30</item>
+        <item>1.08</item>
+        <item>1.42</item>
+        <item>90.05</item>
+        <item>7.82</item>
+        <item>88.64</item>
+        <item>24.53</item>
+        <item>1.49</item>
+        <item>1208.40</item>
+        <item>1.56</item>
+        <item>10.77</item>
+        <item>125.43</item>
+        <item>6.20</item>
+        <item>9.02</item>
+        <item>4.20</item>
+        <item>4.41</item>
+    </string-array>
+
+
 </resources>
