@@ -2,7 +2,6 @@ package com.MSebas55.appdivisas;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyViewHolder> {
     private Context context;
     private ArrayList<divisasEventModel> divisasEventModel;
-    private int selectedItemPosition = RecyclerView.NO_POSITION; // Posición del elemento seleccionado
+    private int seleccionador = RecyclerView.NO_POSITION;
 
     public DivisasRVAdapter(Context context, ArrayList<divisasEventModel> divisasEventModel) {
         this.context = context;
@@ -39,13 +38,13 @@ public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyVi
         holder.tvName.setText(divisasEventModel.get(position).getDivisaName());
         holder.tvPrecio.setText(divisasEventModel.get(position).getDivisaPrecio());
 
-        // Cargar el icono de la divisa utilizando Glide
+        // Glide para los iconos :/
         Glide.with(context)
-                .load(divisasEventModel.get(position).getDivisaIcon())
+                .load(divisasEventModel.get(position).getDivisaIcono())
                 .into(holder.ivIcon);
 
-        // Cambiar el color de fondo si selecciono una divisa
-        if (position == selectedItemPosition) {
+        // Cambiar color de fondo
+        if (position == seleccionador) {
             holder.itemView.setBackgroundColor(Color.parseColor("#006400"));
         } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT);
@@ -72,19 +71,17 @@ public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyVi
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-
-            // Deseleccionar el elemento
-            int previouslySelectedItemPosition = selectedItemPosition;
-            selectedItemPosition = adapterPosition;
+            int previouslySelectedItemPosition = seleccionador;
+            seleccionador = adapterPosition;
             if (previouslySelectedItemPosition != RecyclerView.NO_POSITION) {
                 notifyItemChanged(previouslySelectedItemPosition);
             }
-            notifyItemChanged(selectedItemPosition);
+            notifyItemChanged(seleccionador);
         }
     }
 
-    // Método para obtener la posición del elemento seleccionado
+    // Obtener la posición del elemento seleccionado
     public int getSelectedItemPosition() {
-        return selectedItemPosition;
+        return seleccionador;
     }
 }

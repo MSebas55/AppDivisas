@@ -3,12 +3,12 @@ package com.MSebas55.appdivisas;
 public class divisasEventModel {
     public String eventName;
     public String eventPrecio;
-    public int eventIcon;  // Nueva propiedad para la referencia al ícono de la divisa
+    public int eventIcono;
 
-    public divisasEventModel(String eventName, String eventPrecio, int eventIcon) {
+    public divisasEventModel(String eventName, String eventPrecio, int eventIcono) {
         this.eventName = eventName;
         this.eventPrecio = eventPrecio;
-        this.eventIcon = eventIcon;
+        this.eventIcono = eventIcono;
     }
 
     public String getDivisaName() {
@@ -19,7 +19,7 @@ public class divisasEventModel {
         return eventPrecio;
     }
 
-    public int getDivisaIcon() {
-        return eventIcon;
+    public int getDivisaIcono() {
+        return eventIcono;
     }
 }

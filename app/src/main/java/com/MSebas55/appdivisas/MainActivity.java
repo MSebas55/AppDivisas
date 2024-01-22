@@ -39,34 +39,21 @@ public class MainActivity extends AppCompatActivity {
         DivisasRVAdapter adapter = new DivisasRVAdapter(this, divisasEventModel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Configurar el evento de clic para el botón de convertir
         buttonConvertir.setOnClickListener(view -> convertirDivisa());
     }
 
     private void convertirDivisa() {
-        // Obtener la cantidad en euros ingresada por el usuario
         double cantidadEuros = Double.parseDouble(cantidadEurosEditText.getText().toString());
-
-        // Obtener la posición de la divisa seleccionada en el RecyclerView
         int divisaPosition = ((DivisasRVAdapter) recyclerView.getAdapter()).getSelectedItemPosition();
-
-        // Verificar si el usuario es un cliente VIP
         boolean esClienteVIP = switchDescuento.isChecked();
 
-        // Realizar el cálculo del cambio de divisa
+        // Cambio de divisa
         if (divisaPosition != RecyclerView.NO_POSITION) {
             double precioDivisa = Double.parseDouble(divisasEventModel.get(divisaPosition).getDivisaPrecio());
-
-            // Aplicar descuento si no es cliente VIP
             if (esClienteVIP) {
-                precioDivisa *= 1.02; // Aumenta un 2%
+                precioDivisa *= 1.02;
             }
-
-            // Calcular el resultado
             double resultado = cantidadEuros * precioDivisa;
-
-            // Mostrar el resultado en un TextView (ajusta según tu diseño)
             TextView textViewResultado = findViewById(R.id.textViewResultado);
             textViewResultado.setText(String.valueOf(resultado));
         }
@@ -77,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
         String[] eventPrecio = getResources().getStringArray(R.array.precio_divisas);
         TypedArray eventIcons = getResources().obtainTypedArray(R.array.ic_divisas);
 
-        // Verifica que los tamaños de los arrays sean iguales
+        // Ver si los arrays tienen el mismo length
         int minSize = Math.min(eventNames.length, Math.min(eventPrecio.length, eventIcons.length()));
 
         for (int i = 0; i < minSize; i++) {
             divisasEventModel.add(new divisasEventModel(
                     eventNames[i],
                     eventPrecio[i],
-                    eventIcons.getResourceId(i, R.drawable.ic_dollar_est) // Reemplaza con el ícono correcto
+                    eventIcons.getResourceId(i, R.drawable.ic_dollar_est)
             ));
         }
         eventIcons.recycle();
