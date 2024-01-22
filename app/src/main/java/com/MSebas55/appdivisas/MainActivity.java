@@ -1,15 +1,17 @@
 package com.MSebas55.appdivisas;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.MSebas55.appdivisas.DivisasRVAdapter;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -73,12 +75,18 @@ public class MainActivity extends AppCompatActivity {
     private void setDivisasEventModel() {
         String[] eventNames = getResources().getStringArray(R.array.divisas);
         String[] eventPrecio = getResources().getStringArray(R.array.precio_divisas);
+        TypedArray eventIcons = getResources().obtainTypedArray(R.array.ic_divisas);
 
-        for (int i = 0; i < eventNames.length; i++) {
+        // Verifica que los tamaños de los arrays sean iguales
+        int minSize = Math.min(eventNames.length, Math.min(eventPrecio.length, eventIcons.length()));
+
+        for (int i = 0; i < minSize; i++) {
             divisasEventModel.add(new divisasEventModel(
                     eventNames[i],
-                    eventPrecio[i]
+                    eventPrecio[i],
+                    eventIcons.getResourceId(i, R.drawable.ic_dollar_est) // Reemplaza con el ícono correcto
             ));
         }
+        eventIcons.recycle();
     }
 }

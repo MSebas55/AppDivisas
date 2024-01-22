@@ -6,16 +6,19 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyViewHolder> {
     private Context context;
-    private ArrayList<com.MSebas55.appdivisas.divisasEventModel> divisasEventModel;
+    private ArrayList<divisasEventModel> divisasEventModel;
     private int selectedItemPosition = RecyclerView.NO_POSITION; // Posición del elemento seleccionado
 
     public DivisasRVAdapter(Context context, ArrayList<divisasEventModel> divisasEventModel) {
@@ -36,6 +39,11 @@ public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyVi
         holder.tvName.setText(divisasEventModel.get(position).getDivisaName());
         holder.tvPrecio.setText(divisasEventModel.get(position).getDivisaPrecio());
 
+        // Cargar el icono de la divisa utilizando Glide
+        Glide.with(context)
+                .load(divisasEventModel.get(position).getDivisaIcon())
+                .into(holder.ivIcon);
+
         // Cambiar el color de fondo si selecciono una divisa
         if (position == selectedItemPosition) {
             holder.itemView.setBackgroundColor(Color.parseColor("#006400"));
@@ -51,11 +59,13 @@ public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyVi
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName, tvPrecio;
+        ImageView ivIcon;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvEventName);
             tvPrecio = itemView.findViewById(R.id.tvEventPrecio);
+            ivIcon = itemView.findViewById(R.id.eventImage);
             itemView.setOnClickListener(this);
         }
 

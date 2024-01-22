@@ -44,25 +44,25 @@
         <item>4.41</item>
     </string-array>
     <string-array name="ic_divisas">
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>@drawable/ic_dollar_est</item>
+        <item>@drawable/ic_yen</item>
+        <item>@drawable/ic_libra</item>
+        <item>@drawable/ic_dollar_est</item>
+        <item>@drawable/ic_franco</item>
+        <item>@drawable/ic_dollar_est</item>
+        <item>@drawable/ic_rupia</item>
+        <item>@drawable/ic_yuan</item>
+        <item>@drawable/ic_rublo</item>
+        <item>@drawable/ic_peso_mex</item>
+        <item>@drawable/ic_dolar_neo</item>
+        <item>@drawable/ic_won</item>
+        <item>@drawable/ic_dollar_sig</item>
+        <item>@drawable/ic_lira_turc</item>
+        <item>@drawable/ic_peso_arg</item>
+        <item>@drawable/ic_real_bras</item>
+        <item>@drawable/ic_dolar_hong</item>
+        <item>@drawable/ic_ringgit_mal</item>
+        <item>@drawable/ic_riyal_saud</item>
     </string-array>
 
 </resources>
