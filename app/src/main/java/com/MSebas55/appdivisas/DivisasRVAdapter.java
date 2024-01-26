@@ -36,7 +36,7 @@ public class DivisasRVAdapter extends RecyclerView.Adapter<DivisasRVAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull DivisasRVAdapter.MyViewHolder holder, int position) {
         holder.tvName.setText(divisasEventModel.get(position).getDivisaName());
-        holder.tvPrecio.setText(divisasEventModel.get(position).getDivisaPrecio());
+        holder.tvPrecio.setText("1 " + divisasEventModel.get(position).getDivisaName() + " = " +divisasEventModel.get(position).getDivisaPrecio() + "€");
 
         // Glide para los iconos :/
         Glide.with(context)
